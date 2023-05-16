@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  background-color: ${({ theme }) => theme.colors.primary};
+  position: relative;
 `;
 
 export const Wrapper = styled.div`

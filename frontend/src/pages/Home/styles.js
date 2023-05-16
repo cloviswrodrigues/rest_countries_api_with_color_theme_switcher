@@ -10,3 +10,17 @@ export const Section = styled.section`
   margin: 0 auto;
   padding: 4rem 0;
 `;
+
+export const Filters = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  input {
+    width: 30rem;
+  }
+`;
+
+export const CountryLists = styled.ul`
+  margin-top: 4rem;
+`;

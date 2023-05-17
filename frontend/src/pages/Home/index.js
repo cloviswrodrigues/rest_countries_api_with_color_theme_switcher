@@ -6,12 +6,13 @@ import SearchInput from '../../components/Inputs/Search';
 import DropDown from '../../components/Dropdowns';
 
 export default function Home() {
+  const filtersDropDown = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
   return (
     <Container>
       <Section>
         <Filters>
           <SearchInput />
-          <DropDown />
+          <DropDown text="Filter by region" items={filtersDropDown} />
         </Filters>
         <CountryLists>
           Countrys

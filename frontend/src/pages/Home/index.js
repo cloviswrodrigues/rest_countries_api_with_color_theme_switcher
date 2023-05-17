@@ -3,13 +3,15 @@ import {
 } from './styles';
 
 import SearchInput from '../../components/Inputs/Search';
+import DropDown from '../../components/Dropdowns';
 
 export default function Home() {
   return (
     <Container>
       <Section>
         <Filters>
-          <SearchInput width={40} />
+          <SearchInput />
+          <DropDown />
         </Filters>
         <CountryLists>
           Countrys

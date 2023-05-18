@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 
 import { Container, Button, Menu } from './styles';
 
-function DropDown({ text, items = [] }) {
+export default function DropDown({ text, items = [] }) {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   function handleDropDown() {
@@ -27,5 +27,3 @@ DropDown.propTypes = {
   text: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
-
-export default DropDown;

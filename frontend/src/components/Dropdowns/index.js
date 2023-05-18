@@ -12,7 +12,7 @@ export default function DropDown({ text, items = [] }) {
 
   return (
     <Container>
-      <Button onClick={handleDropDown}>
+      <Button onClick={handleDropDown} menuOpen={toggleMenu}>
         <span>{text}</span>
         <svg xmlns="http://www.w3.org/2000/svg" className="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48" d="M112 184l144 144 144-144" /></svg>
       </Button>

@@ -9,13 +9,64 @@ import Card from '../../components/Card';
 export default function Home() {
   const filtersDropDown = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 
-  const countrys = [{
-    name: 'Germany',
-    population: '81,770,900',
-    region: 'Europe',
-    capital: 'Berlin',
-    flag: 'https://flagcdn.com/w320/de.png',
-  }];
+  const countrys = [
+    {
+      name: 'Germany',
+      population: '81,770,900',
+      region: 'Europe',
+      capital: 'Berlin',
+      flag: 'https://flagcdn.com/w320/de.png',
+    },
+    {
+      name: 'Germany',
+      population: '81,770,900',
+      region: 'Europe',
+      capital: 'Berlin',
+      flag: 'https://flagcdn.com/w320/de.png',
+    },
+    {
+      name: 'Germany',
+      population: '81,770,900',
+      region: 'Europe',
+      capital: 'Berlin',
+      flag: 'https://flagcdn.com/w320/de.png',
+    },
+    {
+      name: 'Germany',
+      population: '81,770,900',
+      region: 'Europe',
+      capital: 'Berlin',
+      flag: 'https://flagcdn.com/w320/de.png',
+    },
+    {
+      name: 'Germany',
+      population: '81,770,900',
+      region: 'Europe',
+      capital: 'Berlin',
+      flag: 'https://flagcdn.com/w320/de.png',
+    },
+    {
+      name: 'Germany',
+      population: '81,770,900',
+      region: 'Europe',
+      capital: 'Berlin',
+      flag: 'https://flagcdn.com/w320/de.png',
+    },
+    {
+      name: 'Germany',
+      population: '81,770,900',
+      region: 'Europe',
+      capital: 'Berlin',
+      flag: 'https://flagcdn.com/w320/de.png',
+    },
+    {
+      name: 'Germany',
+      population: '81,770,900',
+      region: 'Europe',
+      capital: 'Berlin',
+      flag: 'https://flagcdn.com/w320/de.png',
+    },
+  ];
 
   return (
     <Container>

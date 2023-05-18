@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   border-radius: .5rem;
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-  max-width: 260px;
+  max-width: 270px;
   overflow: hidden;
 
   img {

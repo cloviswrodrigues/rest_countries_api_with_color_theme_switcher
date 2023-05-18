@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.main`
   background-color: ${({ theme }) => theme.colors.secondary};
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 `;
 
 export const Section = styled.section`
@@ -23,4 +23,7 @@ export const Filters = styled.div`
 
 export const CountryLists = styled.ul`
   margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6rem;
 `;

@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 import {
   Container, Section, Filters, CountryLists,
 } from './styles';
@@ -6,67 +8,16 @@ import SearchInput from '../../components/Inputs/Search';
 import DropDown from '../../components/Dropdowns';
 import Card from '../../components/Card';
 
+import CountrysService from '../../services/CountrysService';
+
 export default function Home() {
   const filtersDropDown = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+  const [countrys, setCountrys] = useState([]);
 
-  const countrys = [
-    {
-      name: 'Germany',
-      population: '81,770,900',
-      region: 'Europe',
-      capital: 'Berlin',
-      flag: 'https://flagcdn.com/w320/de.png',
-    },
-    {
-      name: 'Germany',
-      population: '81,770,900',
-      region: 'Europe',
-      capital: 'Berlin',
-      flag: 'https://flagcdn.com/w320/de.png',
-    },
-    {
-      name: 'Germany',
-      population: '81,770,900',
-      region: 'Europe',
-      capital: 'Berlin',
-      flag: 'https://flagcdn.com/w320/de.png',
-    },
-    {
-      name: 'Germany',
-      population: '81,770,900',
-      region: 'Europe',
-      capital: 'Berlin',
-      flag: 'https://flagcdn.com/w320/de.png',
-    },
-    {
-      name: 'Germany',
-      population: '81,770,900',
-      region: 'Europe',
-      capital: 'Berlin',
-      flag: 'https://flagcdn.com/w320/de.png',
-    },
-    {
-      name: 'Germany',
-      population: '81,770,900',
-      region: 'Europe',
-      capital: 'Berlin',
-      flag: 'https://flagcdn.com/w320/de.png',
-    },
-    {
-      name: 'Germany',
-      population: '81,770,900',
-      region: 'Europe',
-      capital: 'Berlin',
-      flag: 'https://flagcdn.com/w320/de.png',
-    },
-    {
-      name: 'Germany',
-      population: '81,770,900',
-      region: 'Europe',
-      capital: 'Berlin',
-      flag: 'https://flagcdn.com/w320/de.png',
-    },
-  ];
+  useEffect(() => {
+    const countryList = CountrysService.listCountrys();
+    setCountrys(countryList);
+  }, []);
 
   return (
     <Container>
@@ -76,7 +27,7 @@ export default function Home() {
           <DropDown text="Filter by region" items={filtersDropDown} />
         </Filters>
         <CountryLists>
-          {countrys.map((country) => <Card data={country} />)}
+          {countrys.map((country) => <Card key={country.name} data={country} />)}
         </CountryLists>
       </Section>
     </Container>

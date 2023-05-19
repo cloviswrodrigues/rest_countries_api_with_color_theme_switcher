@@ -11,23 +11,36 @@ import Card from '../../components/Card';
 import CountrysService from '../../services/CountrysService';
 
 export default function Home() {
-  const filtersDropDown = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+  const filtersDropDown = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+
   const [countrys, setCountrys] = useState([]);
+  const [regionFilter, setRegionFilter] = useState(null);
+
+  const countryFiltered = countrys.filter(({ region }) => {
+    if (regionFilter && regionFilter !== 'All') {
+      return region.toLowerCase() === regionFilter.toLowerCase();
+    }
+    return true;
+  });
 
   useEffect(() => {
     const countryList = CountrysService.listCountrys();
     setCountrys(countryList);
   }, []);
 
+  function applyFilterByRegion(region) {
+    setRegionFilter(region);
+  }
+
   return (
     <Container>
       <Section>
         <Filters>
           <SearchInput />
-          <DropDown text="Filter by region" items={filtersDropDown} />
+          <DropDown text="Filter by region" items={filtersDropDown} onSelected={applyFilterByRegion} />
         </Filters>
         <CountryLists>
-          {countrys.map((country) => <Card key={country.name} data={country} />)}
+          {countryFiltered.map((country) => <Card key={country.name} data={country} />)}
         </CountryLists>
       </Section>
     </Container>

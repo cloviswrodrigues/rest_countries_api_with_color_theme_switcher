@@ -9,6 +9,7 @@ export const Button = styled.button`
   padding: 1rem 2rem;
   border-radius: .5rem;
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  width: 250px;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -19,7 +20,7 @@ export const Button = styled.button`
     font-size: 1.4rem;
     font-weight: 600;
     text-align: left;
-    margin-right: 4rem;
+    margin-right: 2rem;
   }
 
   svg {

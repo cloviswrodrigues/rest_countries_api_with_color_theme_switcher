@@ -8,15 +8,15 @@ import SearchInput from '../../components/Inputs/Search';
 import DropDown from '../../components/Dropdowns';
 import Card from '../../components/Card';
 
-import CountrysService from '../../services/CountrysService';
+import CountriesService from '../../services/CountriesService';
 
 export default function Home() {
   const filtersDropDown = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  const [countrys, setCountrys] = useState([]);
+  const [countries, setCountries] = useState([]);
   const [regionFilter, setRegionFilter] = useState(null);
 
-  const countryFiltered = countrys.filter(({ region }) => {
+  const countryFiltered = countries.filter(({ region }) => {
     if (regionFilter && regionFilter !== 'All') {
       return region.toLowerCase() === regionFilter.toLowerCase();
     }
@@ -24,8 +24,8 @@ export default function Home() {
   });
 
   useEffect(() => {
-    const countryList = CountrysService.listCountrys();
-    setCountrys(countryList);
+    const countryList = CountriesService.listCountries();
+    setCountries(countryList);
   }, []);
 
   function applyFilterByRegion(region) {

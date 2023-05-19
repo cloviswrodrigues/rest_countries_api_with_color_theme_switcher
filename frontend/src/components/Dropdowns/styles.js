@@ -25,7 +25,7 @@ export const Button = styled.button`
   svg {
     width: 15px;
     height: 15px;
-    transform: ${({ menuOpen }) => (menuOpen ? 'initial' : 'rotate(180deg)')} ;
+    transform: ${({ menuOpen }) => (menuOpen ? 'rotate(180deg)' : 'initial')} ;
     transition: all .2s;
   }
 `;

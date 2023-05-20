@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 
 import { Container, Button, Menu } from './styles';
@@ -7,6 +7,7 @@ export default function DropDown({ text, items = [], onSelected }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [textFilter, setTextFilter] = useState(items[0]);
   const buttonText = `${text} - ${textFilter}`;
+  const menuRef = useRef();
 
   function toggleDropdown() {
     setToggleMenu((prevState) => !prevState);
@@ -22,8 +23,21 @@ export default function DropDown({ text, items = [], onSelected }) {
     setTextFilter(item);
   }
 
+  useEffect(() => {
+    function closedDropDownClickOut(event) {
+      if (!menuRef.current.contains(event.target)) {
+        setToggleMenu(false);
+      }
+    }
+    window.addEventListener('click', closedDropDownClickOut);
+
+    return () => {
+      window.removeEventListener('click', closedDropDownClickOut);
+    };
+  }, []);
+
   return (
-    <Container>
+    <Container ref={menuRef}>
       <Button onClick={handleDropDown} menuOpen={toggleMenu}>
         <span>{buttonText}</span>
         {/* eslint-disable max-len */}

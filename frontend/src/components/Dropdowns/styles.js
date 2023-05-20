@@ -41,6 +41,7 @@ export const Menu = styled.div`
   top: 50px;
   width: 100%;
   opacity: 0;
+  z-index: -1;
   transform: translateY(-5px);
   transition: all .3s;
 
@@ -65,6 +66,7 @@ export const Menu = styled.div`
         return css`
         opacity: 1;
         transform: translateX(0);
+        z-index: 1;
       `;
       default:
         return null;

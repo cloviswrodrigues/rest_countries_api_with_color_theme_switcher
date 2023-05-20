@@ -9,6 +9,13 @@ export const Container = styled.div`
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   max-width: 270px;
   overflow: hidden;
+  cursor: pointer;
+  transition: all .2s;
+
+  :hover {
+    transform: translateY(-2%);
+    box-shadow: 0px 10px 5px 2px rgba(0,0,0,0.1);
+  }
 
   img {
     max-width: 100%;

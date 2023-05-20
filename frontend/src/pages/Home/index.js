@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import {
   Container, Section, Filters, CountryLists,
@@ -14,14 +14,18 @@ export default function Home() {
   const filtersDropDown = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
   const [countries, setCountries] = useState([]);
+  const [search, setSearch] = useState('');
   const [regionFilter, setRegionFilter] = useState(null);
 
-  const countryFiltered = countries.filter(({ region }) => {
+  const countryFilteredByRegion = useMemo(() => countries.filter(({ region }) => {
     if (regionFilter && regionFilter !== 'All') {
       return region.toLowerCase() === regionFilter.toLowerCase();
     }
     return true;
-  });
+  }), [countries, regionFilter]);
+
+  // eslint-disable-next-line max-len
+  const countryFiltered = useMemo(() => countryFilteredByRegion.filter(({ name }) => name.toLowerCase().includes(search.toLowerCase())), [search, regionFilter]);
 
   useEffect(() => {
     const countryList = CountriesService.listCountries();
@@ -36,7 +40,7 @@ export default function Home() {
     <Container>
       <Section>
         <Filters>
-          <SearchInput />
+          <SearchInput search={search} setSearch={setSearch} />
           <DropDown text="Filter by region" items={filtersDropDown} onSelected={applyFilterByRegion} />
         </Filters>
         <CountryLists>

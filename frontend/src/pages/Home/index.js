@@ -24,8 +24,13 @@ export default function Home() {
     return true;
   }), [countries, regionFilter]);
 
-  // eslint-disable-next-line max-len
-  const countryFiltered = useMemo(() => countryFilteredByRegion.filter(({ name }) => name.toLowerCase().includes(search.toLowerCase())), [search, regionFilter]);
+  const countryFiltered = useMemo(() => {
+    if (search) {
+      return countryFilteredByRegion.filter(({ name }) => name.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    return countryFilteredByRegion;
+  }, [search, regionFilter, countries]);
 
   useEffect(() => {
     const countryList = CountriesService.listCountries();

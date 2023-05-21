@@ -5,7 +5,7 @@ import Home from './pages/Home';
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" exact component={Home} />
+      <Route path="/" exact element={<Home />} />
     </Routes>
   );
 }

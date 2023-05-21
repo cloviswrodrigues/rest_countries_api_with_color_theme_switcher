@@ -7,7 +7,6 @@ import themes from '../../assets/styles/themes';
 
 import Header from '../Header';
 import Routes from '../../Routes';
-import Home from '../../pages/Home';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
       <BrowserRouter>
         <GlobalStyle />
         <Header />
-        <Home />
         <Routes />
       </BrowserRouter>
     </ThemeProvider>

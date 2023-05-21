@@ -18,4 +18,10 @@ export default createGlobalStyle`
     border: none;
     outline: none;
   }
+
+  a {
+    text-decoration: none;
+    color: initial;
+    cursor: pointer;
+  }
 `;

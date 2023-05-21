@@ -21,7 +21,7 @@ export const Filters = styled.div`
   }
 `;
 
-export const CountryLists = styled.ul`
+export const CountryLists = styled.div`
   margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);

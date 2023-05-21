@@ -4,7 +4,7 @@ import { Container } from './styles';
 
 export default function Card({ data }) {
   return (
-    <Container>
+    <Container href={`/country/${data.name.toLowerCase()}`}>
       <img src={data.flag} alt="" />
       <div>
         <h2>{data.name}</h2>

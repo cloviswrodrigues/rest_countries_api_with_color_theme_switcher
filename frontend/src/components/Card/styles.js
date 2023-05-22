@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.a`
+export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
   flex-direction: column;
@@ -11,10 +11,19 @@ export const Container = styled.a`
   overflow: hidden;
   cursor: pointer;
   transition: all .2s;
+  position: relative;
 
   :hover {
     transform: translateY(-2%);
     box-shadow: 0px 10px 5px 2px rgba(0,0,0,0.1);
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   img {

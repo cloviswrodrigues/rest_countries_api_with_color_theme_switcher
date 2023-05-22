@@ -1,10 +1,11 @@
 import { PropTypes } from 'prop-types';
-
+import { NavLink } from 'react-router-dom';
 import { Container } from './styles';
 
 export default function Card({ data }) {
   return (
-    <Container href={`/country/${data.name.toLowerCase()}`}>
+    <Container>
+      <NavLink to={`/country/${data.name.toLowerCase()}`} />
       <img src={data.flag} alt="" />
       <div>
         <h2>{data.name}</h2>

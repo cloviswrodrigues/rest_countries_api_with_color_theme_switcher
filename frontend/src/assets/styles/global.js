@@ -24,4 +24,8 @@ export default createGlobalStyle`
     color: initial;
     cursor: pointer;
   }
+
+  li {
+    list-style: none;
+  }
 `;

@@ -9,6 +9,10 @@ export default createGlobalStyle`
     font-size: 10px;
   }
 
+  body {
+    background-color: ${({ theme }) => theme.colors.secondary};
+  }
+
   button {
     background: none;
     border: none;

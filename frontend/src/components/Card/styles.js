@@ -6,16 +6,17 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   border-radius: .5rem;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: ${({ theme }) => theme.boxShadow.primary};
   max-width: 270px;
   overflow: hidden;
   cursor: pointer;
   transition: all .2s;
   position: relative;
+  color: ${({ theme }) => theme.colors.text};
 
   :hover {
     transform: translateY(-2%);
-    box-shadow: 0px 10px 5px 2px rgba(0,0,0,0.1);
+    box-shadow: ${({ theme }) => theme.boxShadow.secondary};
   }
 
   a {

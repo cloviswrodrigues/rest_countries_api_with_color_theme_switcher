@@ -25,5 +25,11 @@ export const InputContainer = styled.div`
     width: 100%;
     height: 100%;
     font-size: 1.4rem;
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.text};
+
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.text};
+    }
   }
 `;

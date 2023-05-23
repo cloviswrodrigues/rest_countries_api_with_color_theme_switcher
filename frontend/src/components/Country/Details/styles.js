@@ -4,6 +4,7 @@ export const Container = styled.div`
   margin-top: 8rem;
   display: flex;
   gap: 12rem;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Flag = styled.div`

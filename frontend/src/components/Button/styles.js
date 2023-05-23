@@ -10,6 +10,7 @@ export const Container = styled.div`
   border-radius: 5px;
   font-size: 1.4rem;
   position: relative;
+  color: ${({ theme }) => theme.colors.text};
 
   a {
     position: absolute;

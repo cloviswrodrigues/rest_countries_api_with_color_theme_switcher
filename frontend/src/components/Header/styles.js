@@ -15,16 +15,25 @@ export const Wrapper = styled.div`
   padding: 2rem 0;
 
   h1 {
-    font-size: 2.2rem;
+    a {
+      font-size: 2.2rem;
+      color: ${({ theme }) => theme.colors.text};
+    }
   }
 
   button {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.text};
 
-    img {
+    svg {
       width: 1.5rem;
       margin-right: .5rem;
+
+      path {
+        fill: ${({ theme }) => theme.colors.text};
+      }
     }
 
     span {

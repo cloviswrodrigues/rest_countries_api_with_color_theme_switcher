@@ -21,6 +21,7 @@ export const Button = styled.button`
     font-weight: 600;
     text-align: left;
     margin-right: 2rem;
+    color: ${({ theme }) => theme.colors.text};
   }
 
   svg {
@@ -28,6 +29,7 @@ export const Button = styled.button`
     height: 15px;
     transform: ${({ menuOpen }) => (menuOpen ? 'rotate(180deg)' : 'initial')} ;
     transition: all .2s;
+    color: ${({ theme }) => theme.colors.text};
   }
 `;
 
@@ -44,6 +46,7 @@ export const Menu = styled.div`
   z-index: -1;
   transform: translateY(-5px);
   transition: all .3s;
+  color: ${({ theme }) => theme.colors.text};
 
   div {
     background-color: ${({ theme }) => theme.colors.primary};

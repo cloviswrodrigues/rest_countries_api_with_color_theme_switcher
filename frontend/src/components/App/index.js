@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
@@ -9,11 +10,17 @@ import Header from '../Header';
 import Routes from '../../Routes';
 
 function App() {
+  const [theme, useTheme] = useState('light');
+
+  function handleToggleTheme() {
+    useTheme((prevState) => (prevState === 'light' ? 'dark' : 'light'));
+  }
+
   return (
-    <ThemeProvider theme={themes.light}>
+    <ThemeProvider theme={themes[theme]}>
       <BrowserRouter>
         <GlobalStyle />
-        <Header />
+        <Header onToggleTheme={handleToggleTheme} />
         <Routes />
       </BrowserRouter>
     </ThemeProvider>

@@ -4,7 +4,6 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
   flex-direction: column;
-  justify-content: center;
   border-radius: .5rem;
   box-shadow: ${({ theme }) => theme.boxShadow.primary};
   max-width: 270px;
@@ -26,29 +25,28 @@ export const Container = styled.div`
     width: 100%;
     height: 100%;
   }
+`;
 
-  img {
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
+export const CardImage = styled.div`
+  height: 182px;
+`;
+
+export const CardInformation = styled.div`
+  padding: 2rem 2rem 3rem;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
   }
 
-  div {
-    padding: 2rem 2rem 3rem;
+  p {
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-    }
-
-    p {
+    span {
       font-size: 1.4rem;
-      margin-bottom: .5rem;
-
-      span {
-        font-size: 1.4rem;
-        font-weight: 600;
-      }
+      font-weight: 600;
     }
   }
+
 `;

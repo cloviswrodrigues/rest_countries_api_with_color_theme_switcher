@@ -1,13 +1,16 @@
 import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Container } from './styles';
+import { Container, CardImage, CardInformation } from './styles';
+import Image from '../Image';
 
 export default function Card({ data }) {
   return (
     <Container>
       <NavLink to={`/country/${data.name.toLowerCase()}`} />
-      <img src={data.flag} alt="" />
-      <div>
+      <CardImage>
+        <Image src={data.flag} alt={`${data.name}'s flag`} />
+      </CardImage>
+      <CardInformation>
         <h2>{data.name}</h2>
         <p>
           <span>Population: </span>
@@ -21,7 +24,7 @@ export default function Card({ data }) {
           <span>Capital: </span>
           {data.capital}
         </p>
-      </div>
+      </CardInformation>
     </Container>
   );
 }

@@ -4,11 +4,13 @@ import {
   Container, Flag, CountryContainer, CountryName, CountryDetails, CountryBorders,
 } from './styles';
 
+import Image from '../../Image';
+
 export default function Details({ data }) {
   return (
     <Container>
       <Flag>
-        <img src={data.flag} alt="sdasd" />
+        <Image src={data.flag} alt={`${data.name}'s flag`} />
       </Flag>
       <CountryContainer>
         <CountryName>{data.name}</CountryName>

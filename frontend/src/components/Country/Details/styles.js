@@ -10,11 +10,6 @@ export const Container = styled.div`
 export const Flag = styled.div`
   width: 600px;
   height: 350px;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 export const CountryContainer = styled.div`

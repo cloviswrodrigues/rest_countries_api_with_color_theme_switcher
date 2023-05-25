@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
@@ -8,12 +7,13 @@ import themes from '../../assets/styles/themes';
 
 import Header from '../Header';
 import Routes from '../../Routes';
+import useLocalStorage from '../../Hooks/useLocalStorage';
 
 function App() {
-  const [theme, useTheme] = useState('light');
+  const [theme, setTheme] = useLocalStorage({ key: 'theme', defaultValue: 'light' });
 
   function handleToggleTheme() {
-    useTheme((prevState) => (prevState === 'light' ? 'dark' : 'light'));
+    setTheme((prevState) => (prevState === 'light' ? 'dark' : 'light'));
   }
 
   return (

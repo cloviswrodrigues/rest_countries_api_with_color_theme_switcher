@@ -6,14 +6,16 @@ export const Container = styled.main`
 `;
 
 export const Section = styled.section`
-  max-width: 120rem;
+  max-width: 124rem;
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 4rem 2rem;
 `;
 
 export const Filters = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4rem;
   align-items: center;
 
   input {
@@ -23,7 +25,8 @@ export const Filters = styled.div`
 
 export const CountryLists = styled.div`
   margin-top: 4rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 6rem;
 `;

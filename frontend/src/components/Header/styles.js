@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Device from '../../assets/styles/device';
+import { Device } from '../../assets/styles/variables';
 
 export const Container = styled.header`
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);

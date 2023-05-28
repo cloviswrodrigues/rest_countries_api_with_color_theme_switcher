@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   border-radius: .5rem;
   box-shadow: ${({ theme }) => theme.boxShadow.primary};
-  max-width: 255px;
+  width: 255px;
   overflow: hidden;
   cursor: pointer;
   transition: all .2s;

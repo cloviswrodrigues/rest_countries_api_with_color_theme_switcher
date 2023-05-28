@@ -1,20 +1,33 @@
 import styled from 'styled-components';
+import { Device } from '../../../assets/styles/variables';
 
 export const Container = styled.div`
   margin-top: 8rem;
   display: flex;
   gap: 12rem;
   color: ${({ theme }) => theme.colors.text};
+
+  @media screen and (max-width: ${Device.mobile}){
+    margin-top: 6rem;
+    flex-direction: column;
+    gap: 0;
+  }
 `;
 
 export const Flag = styled.div`
-  width: 600px;
-  height: 350px;
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  max-height: 350px;
 `;
 
 export const CountryContainer = styled.div`
   padding: 4rem 0;
   width: 50%;
+
+  @media screen and (max-width: ${Device.mobile}){
+    width: 100%;
+  }
 `;
 
 export const CountryName = styled.h2`
@@ -38,6 +51,13 @@ export const CountryDetails = styled.div`
     font-weight: 800;
   }
 
+  @media screen and (max-width: ${Device.mobile}){
+    flex-direction: column;
+
+    div + div {
+      margin-top: 3rem;
+    }
+  }
 `;
 
 export const CountryBorders = styled.div`
@@ -45,9 +65,9 @@ export const CountryBorders = styled.div`
   display: flex;
 
   span {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    min-width: 12rem;
+    min-width: 13rem;
   }
 
   ul {
@@ -62,6 +82,16 @@ export const CountryBorders = styled.div`
       background-color: ${({ theme }) => theme.colors.primary};
       box-shadow: 0px 0px 4px rgba(0,0,0,.2);
       padding: .4rem 2rem;
+    }
+  }
+
+  @media screen and (max-width: ${Device.mobile}){
+    margin-top: 3rem;
+    flex-direction: column;
+    gap: 2rem;
+
+    ul {
+      margin-left: 0;
     }
   }
 `;

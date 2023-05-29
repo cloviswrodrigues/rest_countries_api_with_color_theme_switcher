@@ -29,6 +29,7 @@ export const Container = styled.div`
 
 export const CardImage = styled.div`
   height: 182px;
+  overflow: hidden;
 `;
 
 export const CardInformation = styled.div`

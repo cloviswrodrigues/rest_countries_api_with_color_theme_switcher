@@ -73,15 +73,19 @@ export const CountryBorders = styled.div`
   ul {
     margin-left: 1rem;
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
 
     li {
+      display: contents;
+    }
+
+    a {
       font-size: 1.2rem;
-      background-color: ${({ theme }) => theme.colors.primary};
-      box-shadow: 0px 0px 4px rgba(0,0,0,.2);
       padding: .4rem 2rem;
+      color: ${({ theme }) => theme.colors.text};
+      background-color: ${({ theme }) => theme.colors.primary};
+      box-shadow: ${({ theme }) => theme.boxShadow.tertiary};
     }
   }
 

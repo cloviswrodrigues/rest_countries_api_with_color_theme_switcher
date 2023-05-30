@@ -14,7 +14,7 @@ export default function Country() {
   useEffect(() => {
     const data = CountriesService.getCountry(name);
     useCountry(data);
-  }, []);
+  }, [name]);
 
   if (!country) return null;
   return (

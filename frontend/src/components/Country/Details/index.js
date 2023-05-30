@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import {
   Container, Flag, CountryContainer, CountryName, CountryDetails, CountryBorders,
@@ -55,7 +56,8 @@ export default function Details({ data }) {
         <CountryBorders>
           <span>Border Countries: </span>
           <ul>
-            {data.borders && data.borders.map((border) => <li key={border}>{border}</li>)}
+            {/* eslint-disable-next-line max-len */}
+            {data.borders && data.borders.map((border) => (<li key={border}><NavLink to={`/country/${border}`}>{border}</NavLink></li>))}
           </ul>
         </CountryBorders>
       </CountryContainer>

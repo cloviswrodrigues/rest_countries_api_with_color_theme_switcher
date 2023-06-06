@@ -31,10 +31,10 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ### What I learned
 
-- Utilizado theming do styled components para mudar as cores para light ou dark mode
-  - salvo no localstorage o theme escolhido
-- Aplicado Skeleton Screen para melhoria na experiência do usuário no carregamento das imagens
-- Criado Hook useLocalStorage para salvar e pegar valores no Local Storage
-- Criado a camada Service para buscar os dados dos países no arquivo data.json
-- Utilizado Eslint para padronização do codigo fonte
+- Used styled components theming to change colors to light or dark mode
+  - save the chosen theme in localstorage
+- Applied Skeleton Screen to improve the user experience when loading images
+- Created Hook useLocalStorage to save and get values in Local Storage
+- Created the Service layer to fetch country data in the data.json file
+- Used Eslint for source code standardization
 

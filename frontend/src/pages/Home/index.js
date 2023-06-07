@@ -33,8 +33,11 @@ export default function Home() {
   }, [search, regionFilter, countries]);
 
   useEffect(() => {
-    const countryList = CountriesService.listCountries();
-    setCountries(countryList);
+    (async () => {
+      const { json: countryList } = await CountriesService.listCountries();
+      console.log('countryList: ', countryList);
+      setCountries(countryList);
+    })();
   }, []);
 
   function applyFilterByRegion(region) {

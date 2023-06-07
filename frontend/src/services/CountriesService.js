@@ -1,8 +1,13 @@
+import HttpClient from './http';
+
 import countries from './repositories/data.json';
+
+const API = 'https://restcountries.com/v3.1';
 
 class CountriesService {
   listCountries() {
-    return countries;
+    const path = '/all';
+    return HttpClient.get(API + path);
   }
 
   getCountry(countryName) {

@@ -17,7 +17,7 @@ export default function Home() {
   const [search, setSearch] = useState('');
   const [regionFilter, setRegionFilter] = useState(null);
 
-  const countryFilteredByRegion = useMemo(() => countries.filter(({ region }) => {
+  const countryFilteredByRegion = useMemo(() => countries?.filter(({ region }) => {
     if (regionFilter && regionFilter !== 'All') {
       return region.toLowerCase() === regionFilter.toLowerCase();
     }
@@ -34,7 +34,7 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      const { json: countryList } = await CountriesService.listCountries();
+      const countryList = await CountriesService.listCountries();
       console.log('countryList: ', countryList);
       setCountries(countryList);
     })();

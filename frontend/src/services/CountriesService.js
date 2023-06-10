@@ -2,12 +2,16 @@ import HttpClient from './http';
 
 import countries from './repositories/data.json';
 
+import CountryMapper from './mappers/CountryMapper';
+
 const API = 'https://restcountries.com/v3.1';
 
 class CountriesService {
-  listCountries() {
+  async listCountries() {
     const path = '/all';
-    return HttpClient.get(API + path);
+    const { json } = await HttpClient.get(API + path);
+    const listCountries = json.map((country) => CountryMapper.toDomain(country));
+    return listCountries;
   }
 
   getCountry(countryName) {

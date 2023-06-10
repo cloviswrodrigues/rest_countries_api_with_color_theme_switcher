@@ -2,15 +2,15 @@ class CountryMapper {
   toDomain(data) {
     return {
       name: data.name.common,
-      flag: data.flag,
+      flag: data.flags.png,
       population: data.population,
       region: data.region,
       subregion: data.subregion,
       capital: data.capital,
       nativeName: data.nativeName,
       topLevelDomain: data.tld || [],
-      currencies: data.currencies || [],
-      languages: data.languages || [],
+      currencies: Object.values(data.currencies || {}).map((currency) => currency.name),
+      languages: Object.values(data.languages || {}),
       borders: data.borders || [],
     };
   }

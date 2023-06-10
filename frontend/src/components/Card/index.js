@@ -6,7 +6,7 @@ import Image from '../Image';
 export default function Card({ data }) {
   return (
     <Container>
-      <NavLink to={`/country/${data.name.toLowerCase()}`} />
+      <NavLink to={`/country/${data.code}`} />
       <CardImage>
         <Image src={data.flag} alt={`${data.name}'s flag`} />
       </CardImage>

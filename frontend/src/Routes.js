@@ -7,7 +7,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" exact element={<Home />} />
-      <Route path="/country/:name" exact element={<Country />} />
+      <Route path="/country/:countryCode" exact element={<Country />} />
     </Routes>
   );
 }

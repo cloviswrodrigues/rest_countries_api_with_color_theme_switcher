@@ -35,7 +35,6 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       const countryList = await CountriesService.listCountries();
-      console.log('countryList: ', countryList);
       setCountries(countryList);
     })();
   }, []);

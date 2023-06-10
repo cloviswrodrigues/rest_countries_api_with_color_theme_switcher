@@ -1,7 +1,4 @@
 import HttpClient from './http';
-
-import countries from './repositories/data.json';
-
 import CountryMapper from './mappers/CountryMapper';
 
 const API = 'https://restcountries.com/v3.1';
@@ -14,22 +11,28 @@ class CountriesService {
     return listCountries;
   }
 
-  getCountry(countryName) {
-    if (!countryName) {
+  async getCountry(countryCode) {
+    if (!countryCode) {
       return null;
     }
 
-    const country = countries.find(({ name }) => name.toLowerCase() === countryName.toLowerCase());
-    if (country.borders) {
-      const bordersLowerCase = country.borders.map((border) => border.toLowerCase());
-      const bordersFiltered = countries.filter(({ alpha3Code }) => bordersLowerCase.includes(alpha3Code.toLowerCase()))
-        .map(({ name }) => name);
-      if (bordersFiltered.length > 0) {
-        country.borders = bordersFiltered;
-      }
+    const path = `/alpha/${countryCode}`;
+    const { json } = await HttpClient.get(API + path);
+    if (!json) {
+      return null;
     }
-
+    let country = json[0];
+    country.borders = await this.getBordersByAlphaCode(country.borders);
+    country = CountryMapper.toDomain(country);
     return country;
+  }
+
+  async getBordersByAlphaCode(listAlphaCode) {
+    if (!listAlphaCode || listAlphaCode.length <= 0) return null;
+    const path = `/alpha?codes=${listAlphaCode.toString()}`;
+    const { json } = await HttpClient.get(API + path);
+    const data = json.map((country) => country.name.common);
+    return data;
   }
 }
 

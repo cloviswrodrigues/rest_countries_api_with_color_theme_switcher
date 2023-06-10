@@ -8,13 +8,15 @@ import Button from '../../components/Button';
 import Details from '../../components/Country/Details';
 
 export default function Country() {
-  const { name } = useParams();
-  const [country, useCountry] = useState(null);
+  const { countryCode } = useParams();
+  const [country, setCountry] = useState(null);
 
   useEffect(() => {
-    const data = CountriesService.getCountry(name);
-    useCountry(data);
-  }, [name]);
+    (async () => {
+      const data = await CountriesService.getCountry(countryCode);
+      setCountry(data);
+    })();
+  }, [countryCode]);
 
   if (!country) return null;
   return (

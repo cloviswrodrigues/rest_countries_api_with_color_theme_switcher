@@ -6,24 +6,27 @@ import { Container, Section } from './styles';
 import CountriesService from '../../services/CountriesService';
 import Button from '../../components/Button';
 import Details from '../../components/Country/Details';
+import Loader from '../../components/Loader';
 
 export default function Country() {
   const { countryCode } = useParams();
   const [country, setCountry] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       const data = await CountriesService.getCountry(countryCode);
       setCountry(data);
+      setIsLoading(false);
     })();
   }, [countryCode]);
 
-  if (!country) return null;
   return (
     <Container>
       <Section>
         <Button link="/">Back</Button>
-        <Details data={country} />
+        <Loader isLoading={isLoading} />
+        {country && <Details data={country} />}
       </Section>
     </Container>
   );

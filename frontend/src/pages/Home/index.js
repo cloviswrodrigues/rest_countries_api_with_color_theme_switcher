@@ -7,6 +7,7 @@ import {
 import SearchInput from '../../components/Inputs/Search';
 import DropDown from '../../components/Dropdowns';
 import Card from '../../components/Card';
+import Loader from '../../components/Loader';
 
 import CountriesService from '../../services/CountriesService';
 
@@ -16,6 +17,7 @@ export default function Home() {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState('');
   const [regionFilter, setRegionFilter] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const countryFilteredByRegion = useMemo(() => countries?.filter(({ region }) => {
     if (regionFilter && regionFilter !== 'All') {
@@ -36,6 +38,7 @@ export default function Home() {
     (async () => {
       const countryList = await CountriesService.listCountries();
       setCountries(countryList);
+      setIsLoading(false);
     })();
   }, []);
 
@@ -50,6 +53,7 @@ export default function Home() {
           <SearchInput search={search} setSearch={setSearch} />
           <DropDown text="Filter by region" items={filtersDropDown} onSelected={applyFilterByRegion} />
         </Filters>
+        <Loader isLoading={isLoading} />
         <CountryLists>
           {countryFiltered.map((country) => <Card key={country.name} data={country} />)}
         </CountryLists>

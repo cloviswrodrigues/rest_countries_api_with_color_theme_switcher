@@ -23,7 +23,7 @@ export const BackgroundSnipper = styled.div`
 export const Snipper = styled.span`
   width: 48px;
   height: 48px;
-  border: 5px solid ${({ theme }) => theme.colors.primary};
+  border: 5px solid ${({ theme }) => theme.colors.text};
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;

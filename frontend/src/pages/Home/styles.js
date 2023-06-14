@@ -30,3 +30,11 @@ export const CountryLists = styled.div`
   flex-wrap: wrap;
   gap: 6rem;
 `;
+
+export const NotFoundCountry = styled.div`
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+`;

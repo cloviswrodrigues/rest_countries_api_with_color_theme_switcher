@@ -1,13 +1,14 @@
 import { useState, useEffect, useMemo } from 'react';
 
 import {
-  Container, Section, Filters, CountryLists,
+  Container, Section, Filters, CountryLists, NotFoundCountry,
 } from './styles';
 
 import SearchInput from '../../components/Inputs/Search';
 import DropDown from '../../components/Dropdowns';
 import Card from '../../components/Card';
 import Loader from '../../components/Loader';
+import Alert from '../../components/Alert';
 
 import CountriesService from '../../services/CountriesService';
 
@@ -57,6 +58,12 @@ export default function Home() {
         <CountryLists>
           {countryFiltered.map((country) => <Card key={country.name} data={country} />)}
         </CountryLists>
+        {countryFiltered.length <= 0
+          && (
+          <NotFoundCountry>
+            <Alert text="No country found" />
+          </NotFoundCountry>
+          )}
       </Section>
     </Container>
   );

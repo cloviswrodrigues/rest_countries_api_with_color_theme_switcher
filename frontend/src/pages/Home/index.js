@@ -58,7 +58,7 @@ export default function Home() {
         <CountryLists>
           {countryFiltered.map((country) => <Card key={country.name} data={country} />)}
         </CountryLists>
-        {countryFiltered.length <= 0
+        {countryFiltered.length <= 0 && !isLoading
           && (
           <NotFoundCountry>
             <Alert text="No country found" />

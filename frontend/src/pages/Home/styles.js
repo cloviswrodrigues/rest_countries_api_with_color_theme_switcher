@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Device } from '../../assets/styles/variables';
 
 export const Container = styled.main`
   background-color: ${({ theme }) => theme.colors.secondary};
@@ -37,4 +38,8 @@ export const NotFoundCountry = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 50vh;
+
+  @media screen and (max-width: ${Device.mobile}){
+    min-height: 20vh;
+  }
 `;

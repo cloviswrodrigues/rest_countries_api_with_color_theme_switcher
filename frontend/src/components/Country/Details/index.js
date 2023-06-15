@@ -57,7 +57,7 @@ export default function Details({ data }) {
           <span>Border Countries: </span>
           <ul>
             {/* eslint-disable-next-line max-len */}
-            {data.borders && data.borders.map((border) => (<li key={border}><NavLink to={`/country/${border}`}>{border}</NavLink></li>))}
+            {data.borders && data.borders.map((border) => (<li key={border.name}><NavLink to={`/country/${border.code}`}>{border.name}</NavLink></li>))}
           </ul>
         </CountryBorders>
       </CountryContainer>

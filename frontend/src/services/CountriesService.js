@@ -31,7 +31,7 @@ class CountriesService {
     if (!listAlphaCode || listAlphaCode.length <= 0) return null;
     const path = `/alpha?codes=${listAlphaCode.toString()}`;
     const { json } = await HttpClient.get(API + path);
-    const data = json.map((country) => country.name.common);
+    const data = json.map((country) => ({ name: country.name.common, code: country.ccn3 }));
     return data;
   }
 }

@@ -61,7 +61,9 @@ export default function Home() {
         {countryFiltered.length <= 0 && !isLoading
           && (
           <NotFoundCountry>
-            <Alert text="No country found" />
+            <Alert>
+              <span>NO COUNTRY FOUND</span>
+            </Alert>
           </NotFoundCountry>
           )}
       </Section>

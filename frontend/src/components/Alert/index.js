@@ -3,15 +3,15 @@ import { ReactComponent as AlertSvg } from '../../assets/images/icons/alert.svg'
 
 import { Container } from './styles';
 
-export default function Alert({ text }) {
+export default function Alert({ children }) {
   return (
     <Container>
       <AlertSvg />
-      <span>{text}</span>
+      {children}
     </Container>
   );
 }
 
 Alert.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
 };

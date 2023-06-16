@@ -1,17 +1,24 @@
 import { PropTypes } from 'prop-types';
-import { ReactComponent as AlertSvg } from '../../assets/images/icons/alert.svg';
+import { ReactComponent as AlertWarningSvg } from '../../assets/images/icons/alert-warning.svg';
+import { ReactComponent as AlertDangerSvg } from '../../assets/images/icons/alert-danger.svg';
 
 import { Container } from './styles';
 
-export default function Alert({ children }) {
+export default function Alert({ type = 'warning', children }) {
   return (
     <Container>
-      <AlertSvg />
+      {type === 'warning' && <AlertWarningSvg />}
+      {type === 'danger' && <AlertDangerSvg />}
       {children}
     </Container>
   );
 }
 
 Alert.propTypes = {
+  type: PropTypes.oneOf(['warning', 'danger']),
   children: PropTypes.string.isRequired,
+};
+
+Alert.defaultProps = {
+  type: 'warning',
 };

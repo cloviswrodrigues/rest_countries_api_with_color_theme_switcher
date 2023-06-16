@@ -32,7 +32,7 @@ export const CountryLists = styled.div`
   gap: 6rem;
 `;
 
-export const NotFoundCountry = styled.div`
+export const ContainerError = styled.div`
   margin-top: 4rem;
   display: flex;
   justify-content: center;

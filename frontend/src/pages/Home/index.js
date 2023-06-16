@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 
 import {
-  Container, Section, Filters, CountryLists, NotFoundCountry,
+  Container, Section, Filters, CountryLists, ContainerError,
 } from './styles';
 
 import SearchInput from '../../components/Inputs/Search';
@@ -15,10 +15,11 @@ import CountriesService from '../../services/CountriesService';
 export default function Home() {
   const filtersDropDown = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState(null);
   const [search, setSearch] = useState('');
   const [regionFilter, setRegionFilter] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const countryFilteredByRegion = useMemo(() => countries?.filter(({ region }) => {
     if (regionFilter && regionFilter !== 'All') {
@@ -29,7 +30,7 @@ export default function Home() {
 
   const countryFiltered = useMemo(() => {
     if (search) {
-      return countryFilteredByRegion.filter(({ name }) => name.toLowerCase().includes(search.toLowerCase()));
+      return countryFilteredByRegion?.filter(({ name }) => name.toLowerCase().includes(search.toLowerCase()));
     }
 
     return countryFilteredByRegion;
@@ -37,8 +38,15 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      const countryList = await CountriesService.listCountries();
-      setCountries(countryList);
+      try {
+        setHasError(false);
+
+        const countryList = await CountriesService.listCountries();
+        setCountries(countryList);
+      } catch {
+        setHasError(true);
+        setCountries(null);
+      }
       setIsLoading(false);
     })();
   }, []);
@@ -56,16 +64,23 @@ export default function Home() {
         </Filters>
         <Loader isLoading={isLoading} />
         <CountryLists>
-          {countryFiltered.map((country) => <Card key={country.name} data={country} />)}
+          {countryFiltered && countryFiltered.map((country) => <Card key={country.name} data={country} />)}
         </CountryLists>
-        {countryFiltered.length <= 0 && !isLoading
+        {countryFiltered?.length <= 0 && !isLoading
           && (
-          <NotFoundCountry>
+          <ContainerError>
             <Alert>
               <span>NO COUNTRY FOUND</span>
             </Alert>
-          </NotFoundCountry>
+          </ContainerError>
           )}
+        {hasError && (
+          <ContainerError>
+            <Alert type="danger">
+              <span>AN UNEXPECTED ERROR OCCURRED</span>
+            </Alert>
+          </ContainerError>
+        )}
       </Section>
     </Container>
   );

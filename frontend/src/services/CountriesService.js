@@ -1,14 +1,19 @@
 import HttpClient from './http';
 import CountryMapper from './mappers/CountryMapper';
 
-const API = 'https://restcountries.com/v3.1';
+const API = 'https://restcountries.com/v3.1asds';
 
 class CountriesService {
   async listCountries() {
     const path = '/all';
-    const { json } = await HttpClient.get(API + path);
-    const listCountries = json.map((country) => CountryMapper.toDomain(country));
-    return listCountries;
+    const { response, json } = await HttpClient.get(API + path);
+
+    if (response.ok) {
+      const listCountries = json.map((country) => CountryMapper.toDomain(country));
+      return listCountries;
+    }
+
+    throw new Error('An error occurred while fetching data from the API');
   }
 
   async getCountry(countryCode) {

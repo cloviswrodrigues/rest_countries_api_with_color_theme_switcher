@@ -2,7 +2,7 @@ class CountryMapper {
   toDomain(data) {
     return {
       name: data.name.common,
-      code: data.ccn3,
+      code: data.ccn3 || data.cca3,
       flag: data.flags.svg,
       population: data.population,
       region: data.region,

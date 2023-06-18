@@ -1,7 +1,7 @@
 import HttpClient from './http';
 import CountryMapper from './mappers/CountryMapper';
 
-const API = 'https://restcountries.com/v3.1asds';
+const API = 'https://restcountries.com/v3.1';
 
 class CountriesService {
   async listCountries() {
@@ -22,14 +22,14 @@ class CountriesService {
     }
 
     const path = `/alpha/${countryCode}`;
-    const { json } = await HttpClient.get(API + path);
-    if (!json) {
-      return null;
+    const { response, json } = await HttpClient.get(API + path);
+    if (response.ok) {
+      let country = json[0];
+      country.borders = await this.getBordersByAlphaCode(country.borders);
+      country = CountryMapper.toDomain(country);
+      return country;
     }
-    let country = json[0];
-    country.borders = await this.getBordersByAlphaCode(country.borders);
-    country = CountryMapper.toDomain(country);
-    return country;
+    throw new Error('An error occurred while fetching data from the API');
   }
 
   async getBordersByAlphaCode(listAlphaCode) {

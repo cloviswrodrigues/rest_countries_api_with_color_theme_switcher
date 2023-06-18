@@ -15,3 +15,10 @@ export const Section = styled.section`
     padding: 4rem 2rem;
   }
 `;
+
+export const ContainerError = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+`;

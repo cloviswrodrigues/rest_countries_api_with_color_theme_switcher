@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 
 import { Container, Button, Menu } from './styles';
+import { ReactComponent as ArrowSvg } from '../../assets/images/icons/arrow.svg';
 
 export default function DropDown({
   text, items = [], indexDefaultValue = 0, onSelected,
@@ -42,10 +43,7 @@ export default function DropDown({
     <Container ref={menuRef}>
       <Button onClick={handleDropDown} menuOpen={toggleMenu}>
         <span>{buttonText}</span>
-        {/* eslint-disable max-len */}
-        <svg xmlns="http://www.w3.org/2000/svg" className="ionicon" viewBox="0 0 512 512">
-          <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48" d="M112 184l144 144 144-144" />
-        </svg>
+        <ArrowSvg />
       </Button>
       <Menu show={toggleMenu}>
         {items.map((item) => (<div key={item} onClick={() => selectedItem(item)}>{item}</div>))}

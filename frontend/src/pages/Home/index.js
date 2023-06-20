@@ -67,7 +67,7 @@ export default function Home() {
           <DropDown
             text="Filter by region"
             items={filtersDropDown}
-            indexDefaltValue={indexDefaultValue}
+            indexDefaultValue={indexDefaultValue}
             onSelected={applyFilterByRegion}
           />
         </Filters>

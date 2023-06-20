@@ -16,7 +16,7 @@ export default function Alert({ type = 'warning', children }) {
 
 Alert.propTypes = {
   type: PropTypes.oneOf(['warning', 'danger']),
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 Alert.defaultProps = {

@@ -3,9 +3,11 @@ import { PropTypes } from 'prop-types';
 
 import { Container, Button, Menu } from './styles';
 
-export default function DropDown({ text, items = [], onSelected }) {
+export default function DropDown({
+  text, items = [], indexDefaultValue = 0, onSelected,
+}) {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [textFilter, setTextFilter] = useState(items[0]);
+  const [textFilter, setTextFilter] = useState(items[indexDefaultValue]);
   const buttonText = `${text} - ${textFilter}`;
   const menuRef = useRef();
 
@@ -55,5 +57,10 @@ export default function DropDown({ text, items = [], onSelected }) {
 DropDown.propTypes = {
   text: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  indexDefaultValue: PropTypes.number,
   onSelected: PropTypes.func.isRequired,
+};
+
+DropDown.defaultProps = {
+  indexDefaultValue: 0,
 };

@@ -11,15 +11,19 @@ import Loader from '../../components/Loader';
 import Alert from '../../components/Alert';
 
 import CountriesService from '../../services/CountriesService';
+import useLocalStorage from '../../Hooks/useLocalStorage';
 
 export default function Home() {
   const filtersDropDown = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
   const [countries, setCountries] = useState(null);
   const [search, setSearch] = useState('');
-  const [regionFilter, setRegionFilter] = useState(null);
+  const [regionFilter, setRegionFilter] = useLocalStorage({ key: 12, defaultValue: filtersDropDown[0] });
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+
+  const getFilterDefault = filtersDropDown.findIndex((filter) => filter === regionFilter);
+  const indexDefaultValue = getFilterDefault !== -1 ? getFilterDefault : 0;
 
   const countryFilteredByRegion = useMemo(() => countries?.filter(({ region }) => {
     if (regionFilter && regionFilter !== 'All') {
@@ -60,7 +64,12 @@ export default function Home() {
       <Section>
         <Filters>
           <SearchInput search={search} setSearch={setSearch} />
-          <DropDown text="Filter by region" items={filtersDropDown} onSelected={applyFilterByRegion} />
+          <DropDown
+            text="Filter by region"
+            items={filtersDropDown}
+            indexDefaltValue={indexDefaultValue}
+            onSelected={applyFilterByRegion}
+          />
         </Filters>
         <Loader isLoading={isLoading} />
         <CountryLists>

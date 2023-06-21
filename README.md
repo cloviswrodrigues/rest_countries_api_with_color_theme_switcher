@@ -32,9 +32,13 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 ### What I learned
 
 - Used styled components theming to change colors to light or dark mode
-  - save the chosen theme in localstorage
+  - save the chosen theme in local storage
 - Applied Skeleton Screen to improve the user experience when loading images
+- Created component Loader when fetch data in API
 - Created Hook useLocalStorage to save and get values in Local Storage
-- Created the Service layer to fetch country data in the data.json file
+- Created page 404 not found
+- Created a visual alert if an error occurs when fetching data from the API
+- Created the Service layer to fetch country data in API [REST Countries](https://restcountries.com/)
+- Created country mapper to facilitate data manipulation
 - Used Eslint for source code standardization
 
